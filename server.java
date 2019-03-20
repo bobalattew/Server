@@ -17,10 +17,10 @@ class TcpJavaServer{
       out.print(data);
             
       //receivng string
-      InputStreamReader in = new InputStreamReader(skt.getInputStream());
-      BufferedReader bf= new BufferedReader(in);
-      String str=bf.readLine();
-      System.out.println("Client said: " +str+"\n");
+      //InputStreamReader in = new InputStreamReader(skt.getInputStream());
+      //BufferedReader bf= new BufferedReader(in);
+      //String str=bf.readLine();
+      System.out.println("We have connected with ip: " +skt.get+"\n");
             
       
       
