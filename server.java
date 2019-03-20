@@ -9,7 +9,8 @@ class TcpJavaServer{
       String data="Whatsupp?";
       ServerSocket srvr = new ServerSocket(9002);
       Socket skt = srvr.accept();
-      System.out.println("Client said: " +skt.getOutputStream()+"\n");
+      BufferedReader in = new BufferedReader(new InputStreamReader(skt.getInputStream()));
+      System.out.println("Client said: " +in.readLine()+"\n");
       PrintWriter out = new PrintWriter(skt.getOutputStream(),true);
       out.print(data);
       out.close();
