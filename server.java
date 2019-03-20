@@ -1,6 +1,6 @@
-Import java.net.*;
-Import java.io.*;
-Import java.lang.*;
+import java.net.*;
+import java.io.*;
+import java.lang.*;
 
 class TcpJavaServer{
 
