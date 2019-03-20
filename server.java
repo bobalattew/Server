@@ -6,13 +6,23 @@ class TcpJavaServer{
 
       public static void main (String args[]) throws IOException
       {
-      String data="Whatsupp?";
+            
+      //Defining/opening connection
       ServerSocket srvr = new ServerSocket(9002);
       Socket skt = srvr.accept();
-      BufferedReader in = new BufferedReader(new InputStreamReader(skt.getInputStream()));
-      System.out.println("Client said: " +in.readLine()+"\n");
+            
+      //receivng string
+      InputStreamReader in = new InputStreamReader(skt.getInputStream());
+      BufferedReader bf= new BufferedReader(in);
+      String str=bf.readLine();
+      System.out.println("Client said: " +str+"\n");
+            
+      //sending string
+      String data="Whatsupp?";
       PrintWriter out = new PrintWriter(skt.getOutputStream(),true);
       out.print(data);
+      
+      //closing connection
       out.close();
       skt.close();
       srvr.close();
