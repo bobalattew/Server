@@ -1,27 +1,50 @@
 import java.net.*;
 import java.io.*;
 import java.lang.*;
+import jave.util.*;
+class Server{
 
-class TcpJavaServer{
-
-      public static void main (String args[]) throws IOException
-      {
-            
+    public static void main (String args[]) throws IOException
+    {
+      try{      
       //Defining/opening connection
       ServerSocket srvr = new ServerSocket(9002);
       Socket skt = srvr.accept();
-            
-            
-      //receivng string
-      //InputStreamReader in = new InputStreamReader(skt.getInputStream());
-      //BufferedReader bf= new BufferedReader(in);
-      //String str=bf.readLine();
-      System.out.println("We have connected with ip: " +skt.getInetAddress()+"\n");
-            
-      //sending string
-      String data="Whatsupp?";
+      
+      InputStreamReader bf = new InputStreamReader(skt.getInputStream());
+      BufferedReader in= new BufferedReader(in);
       PrintWriter out = new PrintWriter(skt.getOutputStream(),true);
-      out.print(data);
+      Scanner s=new Scanner(System.in);
+      
+      Thread send=new Thread(new Runnable(){
+      String msg;
+      @Override
+      public void run(){
+            while(true){
+                  System.out.print("You: ");
+                  msg=s.next();
+                  out.print(msg);
+                  out.flush();
+            }
+      }
+      });
+      send.start
+      
+      Thread receive=new Thread(new Runnable(){
+      String msg;
+      @Override
+      public void run(){
+            while(true){
+                  try{
+                        msg=in.readLine();
+                  }catch(IOException e){
+                        e.printStackTrace();
+                  }
+                  System.out.print("Client: "+msg);
+            }
+      }
+      });
+      receive.start();
             
       
       
@@ -29,5 +52,8 @@ class TcpJavaServer{
       out.close();
       skt.close();
       srvr.close();
+      }catch (IOException e){
+            e.printStackTrace();
       }
+    }
 }
