@@ -12,7 +12,7 @@ class Server{
       Socket skt = srvr.accept();
       
       InputStreamReader bf = new InputStreamReader(skt.getInputStream());
-      BufferedReader in= new BufferedReader(in);
+      BufferedReader in= new BufferedReader(bf);
       PrintWriter out = new PrintWriter(skt.getOutputStream(),true);
       Scanner s=new Scanner(System.in);
       
