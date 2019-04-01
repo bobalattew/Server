@@ -49,9 +49,9 @@ class Server{
       
       
       //closing connection
-      out.close();
-      skt.close();
-      srvr.close();
+      //out.close();
+      //skt.close();
+      //srvr.close();
       }catch (IOException e){
             e.printStackTrace();
       }
