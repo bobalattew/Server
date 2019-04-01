@@ -21,8 +21,8 @@ class Server{
       @Override
       public void run(){
             while(true){
-                  System.out.print("You: ");
-                  msg=s.next();
+  
+                  msg=s.nextLine();
                   out.print(msg);
                   out.flush();
             }
