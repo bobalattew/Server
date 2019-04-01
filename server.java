@@ -4,7 +4,7 @@ import java.lang.*;
 import java.util.*;
 class Server{
 
-    public static void main (String args[]) throws IOException
+    public static void main (String[] args)
     {
       try{      
       //Defining/opening connection
