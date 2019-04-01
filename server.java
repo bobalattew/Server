@@ -1,7 +1,7 @@
 import java.net.*;
 import java.io.*;
 import java.lang.*;
-import jave.util.*;
+import java.util.*;
 class Server{
 
     public static void main (String args[]) throws IOException
@@ -28,7 +28,7 @@ class Server{
             }
       }
       });
-      send.start
+      send.start();
       
       Thread receive=new Thread(new Runnable(){
       String msg;
